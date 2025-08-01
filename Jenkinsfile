@@ -34,6 +34,8 @@ pipeline {
         stage('Containersation'){
             steps{
                 sh '''
+                    docker stop c1 || true
+                    docker rm c1 || true
         
                     docker run -it -d --name c1 -p 9002:8080 abhicloudhero/abhi:1
                 '''
